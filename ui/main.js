@@ -6,9 +6,9 @@ element.innerHTML='Gisha';
 
 
 var button = document.getElementById('counter');
-var counter=0;
+var counter1=0;
 counter.onclick = function() {
-    counter=counter+1;
+    counter1=counter1+1;
     var span = document.getElementById('count');
-    span.innerHTML=counter.toString();
+    span.innerHTML=counter1.toString();
 };
