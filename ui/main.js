@@ -4,11 +4,6 @@ console.log('Loaded!');
 var element = document.getElementById('main-text');
 element.innerHTML='Gisha';
 
-var img = document.getElementById('madi');
-img.onclick=function()
-{
-    img.style.marginLeft='100px';
-};
 
 var button = document.getElementById('counter');
 var counter=0;
