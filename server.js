@@ -11,7 +11,7 @@ var articles ={
     heading : 'Article One',
     date : 'Feb 19 2018',
     content:    `<p>
-                   IMAD course. creating web pages. Practice HTML & CSS
+                   IMAD course test. creating web pages. Practice HTML & CSS
                   </p>
                    <p>
                        IMAD course. creating web pages. Practice HTML & CSS
