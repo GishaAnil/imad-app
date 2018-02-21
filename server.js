@@ -5,19 +5,48 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-  title : 'Article One|Gisha',
-  heading : 'Article One',
-  date : 'Feb 19 2018',
-  content:    `<p>
+var articles ={
+    'article-one'   : {
+    title : 'Article One|Gisha',
+    heading : 'Article One',
+    date : 'Feb 19 2018',
+    content:    `<p>
                    IMAD course. creating web pages. Practice HTML & CSS
-               </p>
-               <p>
-                   IMAD course. creating web pages. Practice HTML & CSS
-               </p>
-               <p>
-                   IMAD course. creating web pages. Practice HTML & CSS
-               </p>`
+                  </p>
+                   <p>
+                       IMAD course. creating web pages. Practice HTML & CSS
+                   </p>
+                   <p>
+                       IMAD course. creating web pages. Practice HTML & CSS
+                   </p>`
+},
+
+    'article-two'   : {
+        title : 'Article Twoe|Gisha',
+        heading : 'Article Two',
+        date : 'Feb 21 2018',
+        content:    `<p>
+                       IMAD course. creating web pages. Practice HTML & CSS.Article2
+                      </p>
+                       <p>
+                           IMAD course. creating web pages. Practice HTML & CSS. Article2
+                       </p>
+                       <p>
+                           IMAD course. creating web pages. Practice HTML & CSS. Article2
+                       </p>`},
+    'article-three' : {
+        title : 'Article Three|Gisha',
+        heading : 'Article Three',
+        date : 'Feb 21 2018',
+        content:    `<p>
+                       IMAD course. creating web pages. Practice HTML & CSS. Article3
+                      </p>
+                       <p>
+                           IMAD course. creating web pages. Practice HTML & CSS. Article3
+                       </p>
+                       <p>
+                           IMAD course. creating web pages. Practice HTML & CSS. Article3
+                       </p>`}
 };
 
 function createTemplate(data) {
@@ -69,17 +98,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    //articleName=article-one
+    var articleName=req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
